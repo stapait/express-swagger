@@ -1,0 +1,23 @@
+{
+  "name": "node-starter-kit",
+  "version": "1.0.0",
+  "description": "A Node.js quickstart project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stapait/node-starter-kit.git"
+  },
+  "author": "Fabio Stapait Pedarnig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stapait/node-starter-kit/issues"
+  },
+  "homepage": "https://github.com/stapait/node-starter-kit#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}

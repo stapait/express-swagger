@@ -1,0 +1,90 @@
+swagger: "2.0"
+info:
+  description: "Hello world test"
+  version: "1.0"
+  title: "User API"
+host: "localhost:3000"
+basePath: "/"
+schemes:
+- "http"
+paths:
+  /user/{id}:
+    get:
+      summary: "Get an user by id"
+      description: "Get a user by id"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: Success
+          schema:          
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      summary: "Delete an user by id"
+      description: "Delete an user by id"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "number"
+      responses:
+        200:
+          description: Success
+          schema:          
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"   
+  /user:
+    post:
+      summary: "Add an user"
+      description: "Add an user"
+      parameters:
+      - in: body
+        name: body
+        description: User object
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        200:
+          description: Success
+          schema:          
+            $ref: "#/definitions/UserResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+definitions:
+  UserResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  User:
+    type: "object"
+    required:
+    - "name"
+    - "id"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
